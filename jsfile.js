@@ -8,7 +8,6 @@ const reset = document.querySelector('#reset');
 const grid = document.querySelector('#grid')
 const defaultValue = 16
 
-
 //This is the logic for creating the first 16 rows and 16 boxes in each row
 function createGrid(yAxis, xAxis){
     for ( r=1; r <= yAxis; r++){
@@ -26,7 +25,7 @@ function createGrid(yAxis, xAxis){
     addBoxEvents();
 }
 
-// Asks for
+// Asks the user for an X Axis value and Y Axis Value and creates grid with those values
 grid.addEventListener('click', function(e){
     while (container.hasChildNodes()){
         container.firstChild.remove()
@@ -35,8 +34,6 @@ grid.addEventListener('click', function(e){
     let newYAxis = gridInputChecker(prompt('how many boxes should there be for the height?(The limit is 100)'))
     createGrid(newYAxis, newXAxis)
 })
-
-createGrid(defaultValue, defaultValue)
 
 //Adds a class to the boxes when they are hovered over and changes their colour over a transition period
 function addBoxEvents(){
@@ -56,6 +53,7 @@ reset.addEventListener('click', function(e){
     })
 });
 
+//Checks the users Input to make sure that it's a number between 1 to 100
 function gridInputChecker(input){
     let convertedInput = Number(input)
     if (isNaN(convertedInput)){
@@ -72,3 +70,6 @@ function gridInputChecker(input){
     }
     return convertedInput
 }
+
+//Creates the Default Grid for the page
+createGrid(defaultValue, defaultValue)

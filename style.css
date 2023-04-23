@@ -11,7 +11,6 @@ body{
 
 .row{
     display: flex;
-    background-color: red;
     opacity: 40%;
     flex-grow: 1;
     justify-content: space-around;
