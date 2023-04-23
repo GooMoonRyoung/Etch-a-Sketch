@@ -1,15 +1,19 @@
 #container{
     display: flex;
+    flex-direction: column;
 
 }
 
 .row{
     display: flex;
-    
+    height: 50px;
+    background-color: red;
+    opacity: 40%;
+    flex-grow: auto;
 }
 
 
 .box{
     height: 50px;
-
+    flex: auto;
 }
