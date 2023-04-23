@@ -1,0 +1,15 @@
+#container{
+    display: flex;
+
+}
+
+.row{
+    display: flex;
+    
+}
+
+
+.box{
+    height: 50px;
+
+}
