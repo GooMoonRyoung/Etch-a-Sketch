@@ -5,12 +5,12 @@ body{
 #container{
     display: flex;
     flex-direction: column;
-    width: 528px;
+    height: 700px;
+    width: 700px;
 }
 
 .row{
     display: flex;
-    height: 33px;
     background-color: red;
     opacity: 40%;
     flex-grow: 1;
@@ -19,12 +19,11 @@ body{
 }
 
 .box{
-    height: 25px;
+
     flex: auto;
     background-color: green;
     border-style: solid;
     border-color: black;
-    margin: 2.5px;
 }
 
 .activated{
