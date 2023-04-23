@@ -6,8 +6,8 @@ I will add a hover event to the boxes that adds a transition/css class and when 
 const container = document.querySelector('#container');
 const reset = document.querySelector('#reset');
 const grid = document.querySelector('#grid')
-const xDefault = 16
-const yDefault = 16
+const defaultValue = 16
+
 
 //This is the logic for creating the first 16 rows and 16 boxes in each row
 function createGrid(yAxis, xAxis){
@@ -31,20 +31,12 @@ grid.addEventListener('click', function(e){
     while (container.hasChildNodes()){
         container.firstChild.remove()
     };
-    const newXAxis = Number(prompt('how many boxes should there be for the width?(The limit is 100)'))
-    if (newXAxis > 100){
-        newXAxis = xDefault
-        alert(`you can't input a number greater than 100`)
-    }
-    const newYAxis = Number(prompt('how many boxes should there be for the height?(The limit is 100)'))
-    if (newXAxis > 100){
-        newXAxis = xDefault
-        alert(`you can't input a number greater than 100`)
-    }
+    let newXAxis = gridInputChecker(prompt('how many boxes should there be for the width?(The limit is 100)'))
+    let newYAxis = gridInputChecker(prompt('how many boxes should there be for the height?(The limit is 100)'))
     createGrid(newYAxis, newXAxis)
 })
 
-createGrid(yDefault, xDefault)
+createGrid(defaultValue, defaultValue)
 
 //Adds a class to the boxes when they are hovered over and changes their colour over a transition period
 function addBoxEvents(){
@@ -55,6 +47,7 @@ function addBoxEvents(){
         });
     })
 }
+
 // Resets all the boxes to their original colour
 reset.addEventListener('click', function(e){
     const boxes = document.querySelectorAll('.box');
@@ -62,3 +55,20 @@ reset.addEventListener('click', function(e){
         box.classList.remove('activated');
     })
 });
+
+function gridInputChecker(input){
+    let convertedInput = Number(input)
+    if (isNaN(convertedInput)){
+        alert(`You entered a value that isn't a number. Default value used instead`)
+        return defaultValue
+    }
+    if (convertedInput > 100){
+        alert(`you can't input a number greater than 100. Default value used instead`)
+        return defaultValue
+    } 
+    if (convertedInput < 1){
+        alert(`you can't input a number less than 1. Default value used instead`)
+        return defaultValue
+    }
+    return convertedInput
+}
