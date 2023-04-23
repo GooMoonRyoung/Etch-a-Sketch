@@ -4,6 +4,8 @@ I will add a hover event to the boxes that adds a transition/css class and when 
 */
 
 const container = document.querySelector('#container');
+const reset = document.querySelector('#reset');
+const grid = document.querySelector('grid')
 const xDefault = 16
 const yDefault = 16
 
@@ -24,10 +26,17 @@ function createGrid(yAxis, xAxis){
 }
 
 createGrid(yDefault, xDefault)
-
+//Adds a class to the boxes when they are hovered over and changes their colour over a transition period
 const boxes = document.querySelectorAll('.box');
 boxes.forEach(box => {
     box.addEventListener('mouseover',function (e){
         this.classList.add('activated')
     });
 })
+
+// Resets all the boxes to their original colour
+reset.addEventListener('click', function(e){
+    boxes.forEach(box => {
+        box.classList.remove('activated')
+    })
+});
