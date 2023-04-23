@@ -5,8 +5,16 @@ I will add a hover event to the boxes that adds a transition/css class and when 
 
 const container = document.querySelector('#container');
 
-for ( i=0; i < 16; i++){
-    const row = document.createElement('div')
-    row.classList.add('row')
-    container.appendChild(row)
+for ( r=1; r <= 16; r++){
+    const row = document.createElement('div');
+    row.classList.add(`row`);
+    row.classList.add(`r${r}`);
+    container.appendChild(row);
+    for (b= 0; b < 16; b++){
+        const currentRow = document.querySelector(`.r${r}`);
+        console.log(currentRow);
+        const box = document.createElement('div');
+        box.classList.add('box');
+        currentRow.appendChild(box);
+    }   
 }
