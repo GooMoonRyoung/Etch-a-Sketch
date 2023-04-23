@@ -1,12 +1,16 @@
+body{
+    margin: 0;
+}
+
 #container{
     display: flex;
     flex-direction: column;
-
+    width: 528px;
 }
 
 .row{
     display: flex;
-    height: 58px;
+    height: 33px;
     background-color: red;
     opacity: 40%;
     flex-grow: 1;
@@ -16,10 +20,10 @@
 
 
 .box{
-    height: 45px;
+    height: 25px;
     flex: auto;
     background-color: green;
     border-style: solid;
     border-color: black;
-    margin: 5px;
+    margin: 2.5px;
 }
